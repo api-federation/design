@@ -11,7 +11,7 @@ Figure 1 - The Big Picture
 <br/>
 </i>
 
-As shown in Figure 1, the connections, interfaces or their interaction are not yet defined. The different components/players in the API ecosystem are shown in the diagram.
+As shown in Figure 1, the interfaces or their interactions are not yet defined. The different components/players in the API ecosystem are shown in the diagram.
 
 For the federated API system, we need a federated user store. There are systems to onboard users and how to work with them. (A future task is the blockchain aspect - decentralized identity management systems and W3C standards around it). Tenant-based user bases can also be considered where clients of clients can also be onboarded. 
 
