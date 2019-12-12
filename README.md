@@ -1,8 +1,7 @@
 # Overview
 Contains requirements and design documents.
 
-API Federation is all about creating federating APIs across different systems and creating an ecosystem of APIs. Many big companies using different API Management solutions or wanting to partner with other companies to provide joint API capabilities want to produce a single marketplace because they want to see and manage everything in one place. 
-
+Federation of APIs involves creating systems where API consumers and API producers are not directly connected and do not  need to directly trust each other. The aim of this group is to create vendor-neutral open specifications that enable API federation.
 
 ![api-federation-design](/media/api-federation-big-picture.png)  <br>
 <p align="center">
