@@ -1,3 +1,4 @@
+# UC2- Federated Publisher
 Assume a company with different departments who use different API Management solutions (because there was no rule to use a single API Management solution initially or the disparity was the result of a company merger). 
 E.g. Department A uses WSO2 API Manager, Department B uses Apigee and Department C uses Kong. 
 
