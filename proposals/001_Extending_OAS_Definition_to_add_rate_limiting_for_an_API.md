@@ -100,9 +100,9 @@ paths:
                     schema:
                 type: number
           x-global-spec-rateLimiting  :
-                        interval      :  1
+                        interval    :  1
                         timeUnit    : hour
-                        quota        :  1000
+                        quota       :  1000
 ```
 
 #### Special Use cases:
