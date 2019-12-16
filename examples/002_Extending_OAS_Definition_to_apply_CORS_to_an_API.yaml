@@ -52,10 +52,8 @@ paths:
           description: Your account is temporary blocked due to exceeding of requests
             limitation of your subscription type.
           content: {}
-      x-global-rateLimiting  :
-        interval     :  1
-        timeUnit     :  hour
-        quota        :  1000       
+      x-auth-type: Application & Application User
+      x-throttling-tier: 50KPerMin
   /forecast:
     get:
       parameters:
@@ -84,19 +82,9 @@ paths:
           description: Your account is temporary blocked due to exceeding of requests
             limitation of your subscription type.
           content: {}
-      x-global-rateLimiting  :
-        interval     :  1
-        timeUnit     :  minute
-        quota        :  10
 components:
   securitySchemes:
     api_key:
       type: apiKey
       name: appid
       in: header
-x-global-spec :
-  x- global-rateLimiting :
-     enabled   : true
-     Interval    : 1
-     timeunit   : minute
-     quota      : 50000

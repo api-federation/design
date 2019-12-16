@@ -37,13 +37,6 @@ paths:
         description: Name of the city
         schema:
           type: string
-      - name: appid
-        in: query
-        description: key - c0430ab5b358094192e01693bb0adef5
-        required: true
-        schema:
-          type: string
-          default: c0430ab5b358094192e01693bb0adef5
       responses:
         200:
           description: Wether of The Given City ID
@@ -59,8 +52,6 @@ paths:
           description: Your account is temporary blocked due to exceeding of requests
             limitation of your subscription type.
           content: {}
-      x-auth-type: Application & Application User
-      x-throttling-tier: 50KPerMin
   /forecast:
     get:
       parameters:
@@ -74,13 +65,6 @@ paths:
         description: Name of the city
         schema:
           type: string
-      - name: appid
-        in: query
-        description: key - c0430ab5b358094192e01693bb0adef5
-        required: true
-        schema:
-          type: string
-          default: c0430ab5b358094192e01693bb0adef5
       responses:
         200:
           description: Fore Cast of the Given city
@@ -96,8 +80,6 @@ paths:
           description: Your account is temporary blocked due to exceeding of requests
             limitation of your subscription type.
           content: {}
-      x-auth-type: Application & Application User
-      x-throttling-tier: 50KPerMin
 components:
   securitySchemes:
     api_key:
