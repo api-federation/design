@@ -30,11 +30,11 @@ This feature will help the API developers to provide the necessary configuration
 ###  Proposed solution
 
 Proposed solution is to add an extension to the OAS spec where that extension describes the following attributes 
-
-'Time Interval: What is the time interval to be used'
-'Time unit: What is the unit of time used to measure API requests'
-'Accepted quota: How many API calls to be accepted'  
-
+```
+            Time Interval: What is the time interval to be used 
+            Time unit: What is the unit of time used to measure API requests
+            Accepted quota: How many API calls to be accepted  
+```
 
 ###  Detailed design
 
