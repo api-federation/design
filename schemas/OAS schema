@@ -1,0 +1,456 @@
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="oasVersion"></a>openapi | `string` | **REQUIRED**. This string MUST be the [semantic version number](https://semver.org/spec/v2.0.0.html) of the [OpenAPI Specification version](#versions) that the OpenAPI document uses. The `openapi` field SHOULD be used by tooling specifications and clients to interpret the OpenAPI document. This is *not* related to the API [`info.version`](#infoVersion) string.
+<a name="oasInfo"></a>info | [Info Object](#infoObject) | **REQUIRED**. Provides metadata about the API. The metadata MAY be used by tooling as required.
+<a name="oasServers"></a>servers | [[Server Object](#serverObject)] | An array of Server Objects, which provide connectivity information to a target server. If the `servers` property is not provided, or is an empty array, the default value would be a [Server Object](#serverObject) with a [url](#serverUrl) value of `/`.
+<a name="oasPaths"></a>paths | [Paths Object](#pathsObject) | **REQUIRED**. The available paths and operations for the API.
+<a name="oasComponents"></a>components | [Components Object](#componentsObject) | An element to hold various schemas for the specification.
+<a name="oasSecurity"></a>security | [[Security Requirement Object](#securityRequirementObject)] | A declaration of which security mechanisms can be used across the API. The list of values includes alternative security requirement objects that can be used. Only one of the security requirement objects need to be satisfied to authorize a request. Individual operations can override this definition.
+<a name="oasTags"></a>tags | [[Tag Object](#tagObject)] | A list of tags used by the specification with additional metadata. The order of the tags can be used to reflect on their order by the parsing tools. Not all tags that are used by the [Operation Object](#operationObject) must be declared. The tags that are not declared MAY be organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.
+<a name="oasExternalDocs"></a>externalDocs | [External Documentation Object](#externalDocumentationObject) | Additional external documentation.
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+#### <a name="infoObject"></a>Info Object
+
+The object provides metadata about the API.
+The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools for convenience.
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="infoTitle"></a>title | `string` | **REQUIRED**. The title of the application.
+<a name="infoDescription"></a>description | `string` | A short description of the application. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
+<a name="infoTermsOfService"></a>termsOfService | `string` | A URL to the Terms of Service for the API. MUST be in the format of a URL.
+<a name="infoContact"></a>contact | [Contact Object](#contactObject) | The contact information for the exposed API.
+<a name="infoLicense"></a>license | [License Object](#licenseObject) | The license information for the exposed API.
+<a name="infoVersion"></a>version | `string` | **REQUIRED**. The version of the OpenAPI document (which is distinct from the [OpenAPI Specification version](#oasVersion) or the API implementation version).
+
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+##### Info Object Example
+
+```json
+{
+  "title": "Sample Pet Store App",
+  "description": "This is a sample server for a pet store.",
+  "termsOfService": "http://example.com/terms/",
+  "contact": {
+    "name": "API Support",
+    "url": "http://www.example.com/support",
+    "email": "support@example.com"
+  },
+  "license": {
+    "name": "Apache 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "version": "1.0.1"
+}
+```
+
+```yaml
+title: Sample Pet Store App
+description: This is a sample server for a pet store.
+termsOfService: http://example.com/terms/
+contact:
+  name: API Support
+  url: http://www.example.com/support
+  email: support@example.com
+license:
+  name: Apache 2.0
+  url: https://www.apache.org/licenses/LICENSE-2.0.html
+version: 1.0.1
+```
+
+#### <a name="contactObject"></a>Contact Object
+
+Contact information for the exposed API.
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="contactName"></a>name | `string` | The identifying name of the contact person/organization.
+<a name="contactUrl"></a>url | `string` | The URL pointing to the contact information. MUST be in the format of a URL.
+<a name="contactEmail"></a>email | `string` | The email address of the contact person/organization. MUST be in the format of an email address.
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+##### Contact Object Example
+
+```json
+{
+  "name": "API Support",
+  "url": "http://www.example.com/support",
+  "email": "support@example.com"
+}
+```
+
+```yaml
+name: API Support
+url: http://www.example.com/support
+email: support@example.com
+```
+
+#### <a name="licenseObject"></a>License Object
+
+License information for the exposed API.
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="licenseName"></a>name | `string` | **REQUIRED**. The license name used for the API.
+<a name="licenseUrl"></a>url | `string` | A URL to the license used for the API. MUST be in the format of a URL.
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+##### License Object Example
+
+```json
+{
+  "name": "Apache 2.0",
+  "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+}
+```
+
+```yaml
+name: Apache 2.0
+url: https://www.apache.org/licenses/LICENSE-2.0.html
+```
+
+#### <a name="serverObject"></a>Server Object
+
+An object representing a Server.
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="serverUrl"></a>url | `string` | **REQUIRED**. A URL to the target host.  This URL supports Server Variables and MAY be relative, to indicate that the host location is relative to the location where the OpenAPI document is being served. Variable substitutions will be made when a variable is named in `{`brackets`}`.
+<a name="serverDescription"></a>description | `string` | An optional string describing the host designated by the URL. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
+<a name="serverVariables"></a>variables | Map[`string`, [Server Variable Object](#serverVariableObject)] | A map between a variable name and its value.  The value is used for substitution in the server's URL template.
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+##### Server Object Example
+
+A single server would be described as:
+
+```json
+{
+  "url": "https://development.gigantic-server.com/v1",
+  "description": "Development server"
+}
+```
+
+```yaml
+url: https://development.gigantic-server.com/v1
+description: Development server
+```
+
+The following shows how multiple servers can be described, for example, at the OpenAPI Object's [`servers`](#oasServers):
+
+```json
+{
+  "servers": [
+    {
+      "url": "https://development.gigantic-server.com/v1",
+      "description": "Development server"
+    },
+    {
+      "url": "https://staging.gigantic-server.com/v1",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://api.gigantic-server.com/v1",
+      "description": "Production server"
+    }
+  ]
+}
+```
+
+```yaml
+servers:
+- url: https://development.gigantic-server.com/v1
+  description: Development server
+- url: https://staging.gigantic-server.com/v1
+  description: Staging server
+- url: https://api.gigantic-server.com/v1
+  description: Production server
+```
+
+The following shows how variables can be used for a server configuration:
+
+```json
+{
+  "servers": [
+    {
+      "url": "https://{username}.gigantic-server.com:{port}/{basePath}",
+      "description": "The production API server",
+      "variables": {
+        "username": {
+          "default": "demo",
+          "description": "this value is assigned by the service provider, in this example `gigantic-server.com`"
+        },
+        "port": {
+          "enum": [
+            "8443",
+            "443"
+          ],
+          "default": "8443"
+        },
+        "basePath": {
+          "default": "v2"
+        }
+      }
+    }
+  ]
+}
+```
+
+```yaml
+servers:
+- url: https://{username}.gigantic-server.com:{port}/{basePath}
+  description: The production API server
+  variables:
+    username:
+      # note! no enum here means it is an open value
+      default: demo
+      description: this value is assigned by the service provider, in this example `gigantic-server.com`
+    port:
+      enum:
+        - '8443'
+        - '443'
+      default: '8443'
+    basePath:
+      # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`
+      default: v2
+```
+
+
+#### <a name="serverVariableObject"></a>Server Variable Object
+
+An object representing a Server Variable for server URL template substitution.
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---:|---
+<a name="serverVariableEnum"></a>enum | [`string`] | An enumeration of string values to be used if the substitution options are from a limited set.
+<a name="serverVariableDefault"></a>default | `string` |  **REQUIRED**. The default value to use for substitution, which SHALL be sent if an alternate value is _not_ supplied. Note this behavior is different than the [Schema Object's](#schemaObject) treatment of default values, because in those cases parameter values are optional.
+<a name="serverVariableDescription"></a>description | `string` | An optional description for the server variable. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+#### <a name="componentsObject"></a>Components Object
+
+Holds a set of reusable objects for different aspects of the OAS.
+All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object.
+
+
+##### Fixed Fields
+
+Field Name | Type | Description
+---|:---|---
+<a name="componentsSchemas"></a> schemas | Map[`string`, [Schema Object](#schemaObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Schema Objects](#schemaObject).
+<a name="componentsResponses"></a> responses | Map[`string`, [Response Object](#responseObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Response Objects](#responseObject).
+<a name="componentsParameters"></a> parameters | Map[`string`, [Parameter Object](#parameterObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Parameter Objects](#parameterObject).
+<a name="componentsExamples"></a> examples | Map[`string`, [Example Object](#exampleObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Example Objects](#exampleObject).
+<a name="componentsRequestBodies"></a> requestBodies | Map[`string`, [Request Body Object](#requestBodyObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Request Body Objects](#requestBodyObject).
+<a name="componentsHeaders"></a> headers | Map[`string`, [Header Object](#headerObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Header Objects](#headerObject).
+<a name="componentsSecuritySchemes"></a> securitySchemes| Map[`string`, [Security Scheme Object](#securitySchemeObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Security Scheme Objects](#securitySchemeObject).
+<a name="componentsLinks"></a> links | Map[`string`, [Link Object](#linkObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Link Objects](#linkObject).
+<a name="componentsCallbacks"></a> callbacks | Map[`string`, [Callback Object](#callbackObject) \| [Reference Object](#referenceObject)] | An object to hold reusable [Callback Objects](#callbackObject).
+
+This object MAY be extended with [Specification Extensions](#specificationExtensions).
+
+All the fixed fields declared above are objects that MUST use keys that match the regular expression: `^[a-zA-Z0-9\.\-_]+$`.
+
+Field Name Examples:
+
+```
+User
+User_1
+User_Name
+user-name
+my.org.User
+```
+
+##### Components Object Example
+
+```json
+"components": {
+  "schemas": {
+    "GeneralError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "skipParam": {
+      "name": "skip",
+      "in": "query",
+      "description": "number of items to skip",
+      "required": true,
+      "schema": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "limitParam": {
+      "name": "limit",
+      "in": "query",
+      "description": "max records to return",
+      "required": true,
+      "schema" : {
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  },
+  "responses": {
+    "NotFound": {
+      "description": "Entity not found."
+    },
+    "IllegalInput": {
+      "description": "Illegal input for operation."
+    },
+    "GeneralError": {
+      "description": "General Error",
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/GeneralError"
+          }
+        }
+      }
+    }
+  },
+  "securitySchemes": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    },
+    "petstore_auth": {
+      "type": "oauth2",
+      "flows": {
+        "implicit": {
+          "authorizationUrl": "http://example.org/api/oauth/dialog",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+```yaml
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+  parameters:
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      required: true
+      schema:
+        type: integer
+        format: int32
+    limitParam:
+      name: limit
+      in: query
+      description: max records to return
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    NotFound:
+      description: Entity not found.
+    IllegalInput:
+      description: Illegal input for operation.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralError'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+    petstore_auth:
+      type: oauth2
+      flows: 
+        implicit:
+          authorizationUrl: http://example.org/api/oauth/dialog
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
+```
