@@ -23,10 +23,10 @@ This  feature can be used to define caching responses received from a backend in
 This feature will help the API developers to provide the necessary configurations required for apply response chasing functionalities to an api-gateway and to invoke response cashing just by providing that in the swagger/OAS definition   rather than  applying response cashing  to  an API in the gateway via API gateway -UI  (AKA Publisher U.I.) or other methods .This will make response chasing configurations more human readable as well.  
 
 ## Proposed solution
-Proposed solution is to add an extension to the OAS spec where that extension describes the following attributes 
+Proposed solution is to add an extension to the OAS spec where that extension describes the following attributes
 
 Cache Time out : how long to cache a response
-Strategy   : The backing data store in which to hold cache
+
 
 
 
