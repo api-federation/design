@@ -107,8 +107,8 @@ paths:
 
 #### Special Use cases:
 
-  x-global-spec-rateLimiting  not present in niter API level no Resource level:
+#####  x-global-spec-rateLimiting  not present in niter API level no Resource level:
         This means API rate-limiting  is disabled and  API-gateway should not add any rate limiting policies to the API it should allow an unlimited amount of request to pass through the gateway.
 
-  x-global-spec-rateLimiting  not present in both  API level and Resource level:
+#####  x-global-spec-rateLimiting  not present in both  API level and Resource level:
         In this scenario Resource level definition should supersedes the  API level rate-limiting 
