@@ -32,11 +32,11 @@ Describe your solution to the problem. Provide examples and describe how they wo
 
 ## Detailed design
 
-Describe the design of the solution in detail. This should include an exact description of the changes to the contents of the OpenAPI specification. That description should include a extract of each section of the OpenAPI specification which is impacted by the proposal with all proposed modifications applied. These extracts may be provided through additional files which are identified and described in this section.
+Describe the design of the solution in detail. 
 
 ## Backwards compatibility
 
-Proposals should be structure so that they can be handled by existing OAS compliant software. Any potential issues should be identified and discussed.
+Proposals should be structure so that they can be handled by existing OAS/API_Federation_Spec compliant software. Any potential issues should be identified and discussed.
 
 ## Alternatives considered
 
