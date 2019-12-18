@@ -1,0 +1,94 @@
+openapi: 3.0.1
+info:
+  title: Weather
+  description: Application to know about weather and forecast of a given city
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: vimukthim@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://api.openweathermap.org/data/2.5
+- url: http://api.openweathermap.org/data/2.5
+tags:
+- name: weather
+  description: Todayas Weather
+  externalDocs:
+    description: Find out more
+    url: https://openweathermap.org/current
+- name: forecast
+  description: wether forcast of the cities
+  externalDocs:
+    description: Find out more about our store
+    url: https://openweathermap.org/forecast16
+paths:
+  /weather:
+    get:
+      parameters:
+      - name: id
+        in: query
+        description: ID of the City
+        schema:
+          type: number
+      - name: q
+        in: query
+        description: Name of the city
+        schema:
+          type: string
+      responses:
+        200:
+          description: Wether of The Given City ID
+          content: {}
+        401:
+          description: Invalid API key. Please see http://openweathermap.org/faq#error401
+            for more info
+          content: {}
+        404:
+          description: Unable to find the URL path
+          content: {}
+        429:
+          description: Your account is temporary blocked due to exceeding of requests
+            limitation of your subscription type.
+          content: {}
+  /forecast:
+    get:
+      parameters:
+      - name: id
+        in: query
+        description: ID of the City
+        schema:
+          type: number
+      - name: q
+        in: query
+        description: Name of the city
+        schema:
+          type: string
+      responses:
+        200:
+          description: Fore Cast of the Given city
+          content: {}
+        401:
+          description: Invalid API key. Please see http://openweathermap.org/faq#error401
+            for more info
+          content: {}
+        404:
+          description: Unable to find the URL path
+          content: {}
+        429:
+          description: Your account is temporary blocked due to exceeding of requests
+            limitation of your subscription type.
+          content: {}
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: appid
+      in: header
+x-global-spec :
+  x- global-rateLimiting :
+     enabled   : true
+     Interval    : 1
+     timeunit   : minute
+     quota      : 50000

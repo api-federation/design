@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  description: Weather app provides details about 
+  version: 1.0.0
+  title: Weather
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: vimukthim@wso2.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://api.openweathermap.org/data/2.5
+  - url: http://api.openweathermap.org/data/2.5
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: appid
+      in: header
+    speDefaultSecurity:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://editor.swagger.io/
+          scopes: {}
+tags:
+  - name: weather
+    description: created  Weather
+paths:
+  /weather:
+    get:
+      responses:
+        "200":
+          description: weather of The Given City ID
+              parameters:
+        - name: id
+          in: query
+          required: false
+          description: ID of the City
+          schema:
+            type: number
+x-global-spec :
+  x-global-cache  :  300
