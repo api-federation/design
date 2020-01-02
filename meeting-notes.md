@@ -1,4 +1,34 @@
 # Meeting Notes
+## Date: 19th December 2019
+
+### Participants:
+
+Alex de Groot - Xpirit<br>
+Cajetan Rodrigues - TrustYou<br>
+Nuwan Dias<br>
+Vimukthi Mayadunne<br>
+Dakshitha Ratnayake
+
+Gave an update to Cajetan and Alex about use cases and discussed the use cases contributed by the members. 
+
+Alex pointed out that the Federated Publisher use case (UC-2) is a centralization approach which could hinder agile processes adopted by separate teams if a single process is introduced to publish APIs to gateways. While teams need to use their own tools and technologies, UC-2 was conceptualized based on customers who wanted tools to create a good API publishing experience. So, the idea is to let teams use their own tools but if they want to use the publisher tool, they can do that too. 
+
+API consumer shouldn't have to worry about who the provider of the API is and what the functionality behind the scenes is. They should just be allowed to access APIs via a single interface. For example, in the API discovery user case that provides a catalog, if the user has to access the APIs via a different gateway, the experience will not be seamless from the perspective of the user. However, what is needed at the end of the day is an API portal through which users access APIs and the underlying access mechanisms are abstracted and a unified experience should be provided to the user irrespective of where the API resides. This inherently falls under the purview of API Federation. 
+
+We also discussed the possibility of tenants bringing in their own user pools and authenticating them against their IDPs. It could be both user stores and IDPs. We also can think of it as identity federation where a central IDP can federate with IDPs associated with other gateways. The central IDP can send an authentication request for a user to the relevant IDP and once the user is authenticated, the central IDP can issue tokens to the user. More brainstorming required for this use case. 
+
+Furthermore, authorization requirements were also discussed. We can use scopes for this purpose and bind scopes to a resource/token. A scope is an abstraction and the underlying implementation could vary based on various factors: scopes can be bound to user roles, XACML policies etc. Should authorization be a part of federation initiative? 
+
+What about lifecycles? How can lifecycle stages be preserved across gateways? 
+
+What should be federated: API meta data concerning basic API info, policies, key management, analytics.
+ 
+
+### TODO
+Work on a scope document. 
+
+------------------------------------------------
+# Meeting Notes
 ## Date: 12th December 2019
 
 ### Participants:
