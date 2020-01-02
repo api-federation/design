@@ -28,7 +28,6 @@ What should be federated: API meta data concerning basic API info, policies, key
 Work on a scope document. 
 
 ------------------------------------------------
-# Meeting Notes
 ## Date: 12th December 2019
 
 ### Participants:
