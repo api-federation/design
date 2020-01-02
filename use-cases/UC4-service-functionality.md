@@ -1,5 +1,4 @@
-Federating API functionality
-===
+# UC4 - Federating API Functionality
 
 This use-case demands federated _serviceability_ at all federated-gateways.
 
