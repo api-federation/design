@@ -3,7 +3,7 @@ Assume a set of companies that work in the same industry (eg: banks).
 Often there's a central entity that regulates the industry. It can also provide IT services to the industry.
 As different companies will provide different services this entity can work as an entry point for developers that want to consume the APIs.
 
-This can be achieved by having the having the companies services hosted centrally with different levels of integration:
+This can be achieved by having the companies services hosted centrally with different levels of integration:
 
 ### 1. Yellow Pages
 -------------
@@ -19,7 +19,7 @@ This means the catalogue will have all the APIs from all companies, duplicating 
 ### 2. Central Catalogue
 -------------
 The central entity shall have a list of APIs, grouped by functionality.
-Similar/Standar APIs that are provided by several providers are logically grouped so that only one is shown to the developer.
+Similar/Standard APIs that are provided by several providers are logically grouped so that only one is shown to the developer.
 For the developer it shall be clear which providers are behind that specific service. When looking for more information the Developer shall be redirected to the Developer Portal belonging to the provider of interest.
 For specific APIs, that are provided only by one provider, the behaviour shall be the same as in (1.).
 
