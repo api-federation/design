@@ -1,4 +1,58 @@
 # Meeting Notes
+## Date: 2nd January 2020
+
+### Participants
+Ram Grandhi - NN Insurance
+Cajetan Rodrigues - TrustYou
+Dimuthu Leelarathne - Apigate
+Isabelle Mauny - 42Crunch
+Nuwan Dias - WSO2
+Vimukthi Mayadunne - WSO2
+Dakshitha Ratnayake - WSO2
+
+This was Ram’s and Isabelle’s first meeting. Gave a quick overview of what we think API Federation is all about. 
+
+Next, we discussed Cajetan’s use cases of lifecycle reflection and seamless access of APIs deployed in gateways belonging to different owners and distributed across different networks. 
+
+Security concepts, rate limiting, monetizing apis are common but there is no single spec which defines how these should be done. Ram has done something similar with respect to use case 6. Get all possible scenarios from folks in the industry. 
+
+Ram mentioned that RAML has introduced a standard called superface.ai and it seems to have an overlap of what we are trying to do. In that, API client and producers don’t want to have anything in between like a gateway in between and communicate directly. Get some thoughts from that perspective as well since that’s where the industry is heading. 
+
+Ram has one public API entry point in their company - not diff gateways from vendors. Where small parts of the company want to test their stuff with a subset of users for stable APIs or stable user bases which divides them with a production customer base - pure paying customers and a user pool of pilot customers. Gives them an opp to have multiple user pools - AWS cognito, Azure AD, Salesforce Active Directory. Today their company is using SAML2 as the only opp between API M and the userpool for this but it will be good to have a vendor-neutral spec to embrace these user pools. Will think more and get back to us. 
+
+SEND MORE PULL CASES!
+
+Narrow it down and create a scope document and create the architecture. 
+We have already come up with a spec based on Open API spec
+By looking at what we have done we need to reuse what we done. So identify a scope. Now that we have about 6 use we can start designing the architecture. 
+
+Nuwan: Come up with user stories and then create a level 0 architecture. 
+
+
+Seamless API federation aspect: Discussion - 
+What we had in mind was to have  separate gateways but a unified portal to see all info of APIs even though they reside in different gateways. Keep the APIs in their respective gateways without having a proxy or a duplication. 
+Nuwan: Let’s see what we can introduce into the spec. How a single lifecycle change should be reflected. So introduce a state in the spec. SImilarly we need to come up with stuff to the spec to use in the spec. 
+
+Ram's suggestion. It would make a lot of sense if we can use a whiteboarding.
+
+Unified catalog component and the independent vendor components. There can be 2 types of events that would be coming in and out. One is an announcement - state change event. There is also the info specific to API info e.g. - throughputs and other info that cannot be changes. Not sure if Swagger 3.0 is the only option. Are we open to other standards? Because it also restricts creativity. Let’s start with the block diagram and see what interactions happen during design time and what happens during run time. 
+
+Isabelle: Have we already reached out to the Open API guys? 
+
+Cajetan: Before the architecture is presented we would present the scope first and figure out what is in scope and out of scope and have a clear seggregation. How long are we planning on keeping the use case discovery phase alive? Is there a plan to enforce a cut off time for the use cases? Nuwan: Keep it open for the time being, so that everyone gets a chance to present their ideas. 
+
+Conclusion: Come up with a scope based on what we have so far. Once we are done with a few iterations we can close the call for use cases. 
+
+TODO - Scoping Exercise
+Identify the flows and metrics. 
+Once a flow is idenitified, determine the impact of a use case and the feasibiity of use cases should also be documented. e.g., even though one use case is desirable, the implementation could be difficult. 
+
+Side note: 
+Isabelle: have you guys looked at this ? http://apisjson.org - This was started by Kin Lane - I am sure he would be happy to collaborate to the API federation effort.
+
+### Participants:
+
+------------------------------
 ## Date: 19th December 2019
 
 ### Participants:
