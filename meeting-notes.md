@@ -1,14 +1,15 @@
 # Meeting Notes
+
 ## Date: 2nd January 2020
 
 ### Participants
-Ram Grandhi - NN Insurance
-Cajetan Rodrigues - TrustYou
-Dimuthu Leelarathne - Apigate
-Isabelle Mauny - 42Crunch
-Nuwan Dias - WSO2
-Vimukthi Mayadunne - WSO2
-Dakshitha Ratnayake - WSO2
+Ram Grandhi - NN Insurance<br>
+Cajetan Rodrigues - TrustYou<br>
+Dimuthu Leelarathne - Apigate<br>
+Isabelle Mauny - 42Crunch<br>
+Nuwan Dias - WSO2<br>
+Vimukthi Mayadunne - WSO2<br>
+Dakshitha Ratnayake - WSO2<br>
 
 This was Ram’s and Isabelle’s first meeting. Gave a quick overview of what we think API Federation is all about. 
 
@@ -50,9 +51,7 @@ Once a flow is idenitified, determine the impact of a use case and the feasibiit
 Side note: 
 Isabelle: have you guys looked at this ? http://apisjson.org - This was started by Kin Lane - I am sure he would be happy to collaborate to the API federation effort.
 
-### Participants:
-
-------------------------------
+-------------------------------------------------------------------
 ## Date: 19th December 2019
 
 ### Participants:
