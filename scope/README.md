@@ -6,7 +6,7 @@ To create a specification that enables creating a unified marketplace of APIs ru
 
 ## Scope
 
-The following use cases under In-scope and Out-of-scope are derived from the use cases described in [use-cases](use-cases).
+The following use cases under In-scope and Out-of-scope are derived from the use cases described in [use-cases](../use-cases).
 ### In-scope
 * UC-1 - Building a unified portal (catalogue) of APIs deployed on a heterogeneous collection of API gateway vendors. Subscriptions to any API should be facilitated from the unified portal.
 * UC-3 - Industry marketplace. 
