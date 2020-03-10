@@ -1,5 +1,31 @@
 # Meeting Notes
 
+## Date: 26th February 2020
+
+### Participants:
+
+Ram Grandhi - NN Insurance<br>
+Flavio Geraldes - Lusfthansa<br>
+Nuwan Dias<br>
+
+Gave an update regarding the scope document. In summary, UC-1, UC3 and UC-6 are considered to be in-scope. UC-2, UC-4 and UC-5 are considered out of scope. However the fact that APIs need to have a state is derived from UC-5 and considered for the scope.
+
+Presented the first draft of the data to be included in the specification. Based on this the initial spec was presented.
+
+Ram suggested that we need to standardize the way API gateways send user-contexts to back-end systems. Currently each API gateway uses its own method such as JWTs in headers, plain headers and so on.
+
+The specification seems to be having both design time information as well as runtime information. This needs to be clearly called out and the data to be separated between design and run times.
+
+The bring-your-own-userpool (UC-6) seems to be complicating the specification a too much. We couldn't figure out how exactly this would be represented within the specification and therefore considering leaving UC-6 out of the scope.
+
+Need a way to standardize discovery and subscription to APIs. This is a use case Ram brought up and promised to contribute with a use case description on same.
+
+There was a concern on considering Billing information on APIs into the specification due to complexities that would arise with the need to declare payment gateways, billing systems and so on.
+
+Need to explicitly elaborate on the name of the spec. Currently the name chosen for the spec is "Gateway Spec".
+
+----------------------------------------------------------
+
 ## Date: 2nd January 2020
 
 ### Participants
@@ -52,6 +78,7 @@ Side note:
 Isabelle: have you guys looked at this ? http://apisjson.org - This was started by Kin Lane - I am sure he would be happy to collaborate to the API federation effort.
 
 -------------------------------------------------------------------
+
 ## Date: 19th December 2019
 
 ### Participants:
