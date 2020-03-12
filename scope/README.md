@@ -4,9 +4,9 @@ This document describes the scope of the API Federation project.
 ## Mission Statement
 To create a specification that enables an API Gateway to address the following concerns.
 
-**Designtime Federation** - More [here](../README.md)  
+**Designtime Federation** - More [here](../README.md#designtime-federation)  
 
-**Runtime Federation** - More [here](../README.md)  
+**Runtime Federation** - More [here](../README.md#runtime-federation)  
 
 ## Scope
 
