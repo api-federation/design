@@ -1,4 +1,4 @@
-# UC7 - Standardized End-User context
+# UC7 - Standardize End-User context
 
 This use-case aims at standardizing generation and transmission of end-user context by API Gateway.
 
