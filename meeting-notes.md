@@ -24,7 +24,7 @@ However, we can still keep the monetization plans included in the design-time sp
 
 4. Subscription endpoint
 * Each API gateway control plane should expose an endpoint to notify about developer subscriptions to APIs.  
-<code>
+````
 POST /subscribe  
 api_name  
     REQUIRED - The name of the API being subscribed to.  
@@ -38,7 +38,7 @@ client_tenant
     OPTIONAL - The tenant which owns the client.  
 quota_identifier  
     OPTIONAL - To identify the quota under which the subscription was made. Ex Gold Tier (the gateway needs to know the quota applied by the Gold tier)  
-</code>
+````
 
 5. Discovery service on API gateways
 We need a standard API discovery service on API gateways.
