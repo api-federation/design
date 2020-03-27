@@ -1,5 +1,84 @@
 # Meeting Notes
 
+## Date: 18th March 2020
+
+### Participants:
+
+Ram Grandhi - NN Insurance<br>
+Nuwan Dias<br>
+
+1. Propagating end user context to downstream services from the API Gateway.
+* API Gateway will generate a signed JWT containing the claims of the user who authenticated at the API gateway.
+The JWT will be sent in a standard header. Need a good name for this header. Suggestions: X-Userinfo, 
+* The JWT will be signed by the API gateway itself.
+Downstream services need to trust the signature of the API gateway it receives requests from.
+* The sub claim in the JWT will contain the user identifier (username). Do we need to mandate any other data to be included in the JWT?
+Need to include the scopes so that downstream services can be
+
+2. Propagating end user context to downstream API gateways.
+* We can use the same approach as propagating end user context to downstream services for this as well. We don’t need a separate mechanism for this?
+
+3. Billing information
+* On the last call we thought to exclude the billing information of an API from the spec due to the complexities of payment gateways, etc.
+However, we can still keep the monetization plans included in the design-time spec. For ex: API foo - available under tier Bronze for 1000req/month for 5$, Silver for 5000req/month for 20$, Gold for 10000req/month for 45$.
+
+4. Subscription endpoint
+* Each API gateway control plane should expose an endpoint to notify about developer subscriptions to APIs.  
+<code>
+POST /subscribe  
+api_name  
+    REQUIRED - The name of the API being subscribed to.  
+api_version  
+    REQUIRED - The version of the API being subscribed to.  
+api_tenant  
+    OPTIONAL - For multi tenant API gateways the tenant identifier is used to uniquely identify the API.  
+client_identifier  
+    REQUIRED - A unique identifier of the client (application) that subscribes to the API.  
+client_tenant  
+    OPTIONAL - The tenant which owns the client.  
+quota_identifier  
+    OPTIONAL - To identify the quota under which the subscription was made. Ex Gold Tier (the gateway needs to know the quota applied by the Gold tier)  
+</code>
+
+5. Discovery service on API gateways
+We need a standard API discovery service on API gateways.
+An endpoint to get a list of all deployed APIs on a gateway  
+<code>
+GET /apis?tenant=<tenant_identifier>&limit=<limit_per_page>&page=<page_number></code>
+
+Returns an array of APIs in JSON format. Ex:  
+<code>
+{
+	"apis": [{
+		"api_id": "sju8-siu-nju",
+		"api_name": "Foo",
+		"api_version": "v1.0.4"
+	}]
+}
+</code>
+ 
+
+6. An endpoint to get details of a specific API  
+<code>GET /apis/{api_id}</code>
+
+Returns details of a given API identified by the given id. Ex:  
+<code>
+{
+	"api_id": "sju8-siu-nju",
+	"api_name": "Foo",
+	"api_version": "v1.0.4",
+	"state": "live",
+	"security": ["oauth2", "basic"]
+}
+</code>  
+
+7. Building on the Open API spec  
+* During the last discussion we talked about building this spec on-top of OAS.  
+* However, given that we now have both a design time spec and a runtime spec, only certain attributes from the design time spec can be included into OAS. Runtime stuff will have to remain as a separate specification.  
+
+8. How do we get other API management providers to participate in this initiative?  
+* Plan to contact known individuals in the industry to collaborate.
+
 ## Date: 26th February 2020
 
 ### Participants:
