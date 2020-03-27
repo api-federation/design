@@ -43,11 +43,12 @@ quota_identifier
 5. Discovery service on API gateways
 We need a standard API discovery service on API gateways.
 An endpoint to get a list of all deployed APIs on a gateway  
-<code>
-GET /apis?tenant=<tenant_identifier>&limit=<limit_per_page>&page=<page_number></code>
+````
+GET /apis?tenant=<tenant_identifier>&limit=<limit_per_page>&page=<page_number>
+````
 
 Returns an array of APIs in JSON format. Ex:  
-<code>
+````
 {
 	"apis": [{
 		"api_id": "sju8-siu-nju",
@@ -55,14 +56,14 @@ Returns an array of APIs in JSON format. Ex:
 		"api_version": "v1.0.4"
 	}]
 }
-</code>
+````
  
 
 6. An endpoint to get details of a specific API  
-<code>GET /apis/{api_id}</code>
+````GET /apis/{api_id}````
 
 Returns details of a given API identified by the given id. Ex:  
-<code>
+````
 {
 	"api_id": "sju8-siu-nju",
 	"api_name": "Foo",
@@ -70,7 +71,7 @@ Returns details of a given API identified by the given id. Ex:
 	"state": "live",
 	"security": ["oauth2", "basic"]
 }
-</code>  
+```` 
 
 7. Building on the Open API spec  
 * During the last discussion we talked about building this spec on-top of OAS.  
