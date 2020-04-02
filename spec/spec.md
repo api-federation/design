@@ -24,7 +24,7 @@ A request to the above endpoint would result in a response that contains an arra
 		"id": "sju8-siu-nju",
 		"name": "Foo",
 		"version": "v1.0.4",
-    "state": "live"
+                "state": "live"
 	}]
 }
 ````
@@ -43,13 +43,13 @@ Returns details of a given API identified by the given id. Ex:
 	"api_id": "sju8-siu-nju",
 	"api_name": "Foo",
 	"api_version": "v1.0.4",
-  "spec_type": "oas",
+ 	"spec_type": "oas",
 	"state": "live",
-  "provider": "Foo Inc.",
-  "provider_contact": "https://foo.com",
+  	"provider": "Foo Inc.",
+  	"provider_contact": "https://foo.com",
 	"subscription_policies": ["p1", "p2"],
-  "production_url": "https://example.com/apis/foo",
-  "sandbox_url": "https://test.example.com/apis/foo"
+  	"production_url": "https://example.com/apis/foo",
+  	"sandbox_url": "https://test.example.com/apis/foo"
 }
 ````
   
