@@ -98,3 +98,21 @@ DELETE /subscriptions/{subscription_id}
 ````  
 
 Upon successful removal this will return a 200 OK response.  
+  
+### 6. Discovering policies available for subscriptions  
+
+When an API user subscribes to an API, he/she may be required to subscribe through a selected policy. To cater this requirement the API gateway needs to expose an endpoint that makes it possible for API user portals to discover what type of policies are available for subscription. A policy may be used to represent access quotas and other similar governance rules on using the API. Following is the structure of the endpoint that makes subscription policies discoverable on API gateways.  
+````
+GET /subscription-policies?tenant=<tenant_identifier>
+````  
+
+This would return a list of policies as shown below.  
+````
+{
+	"subs-policies": [{
+		"id": "p1",
+		"name": "Gold",
+		"description": "Allows 1000 request per minute at a charge of 100$ a month"
+	}]
+}
+````
