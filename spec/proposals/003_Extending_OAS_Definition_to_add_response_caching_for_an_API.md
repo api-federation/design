@@ -1,11 +1,11 @@
-# Extending OAS Definition to add response cashing for an API
+# Extending OAS Definition to add response caching for an API
 
 ## Metadata
 
 |Tag |Value |
 |---- | ---------------- |
 |Proposal |[001]()|
-|Authors|[Vimukthi Mayadunne](https://github.com/VimukthiMayadunne), [Author 2](https://github.com/{author2})|
+|Authors|[Vimukthi Mayadunne](https://github.com/VimukthiMayadunne)|
 |Review Manager |TBD |
 |Status |Proposal|
 
@@ -20,7 +20,7 @@
 This  feature can be used to define caching responses received from a backend in the api-gateway. 
 
 ## Motivation
-This feature will help the API developers to provide the necessary configurations required for apply response chasing functionalities to an api-gateway and to invoke response cashing just by providing that in the swagger/OAS definition   rather than  applying response cashing  to  an API in the gateway via API gateway -UI  (AKA Publisher U.I.) or other methods .This will make response chasing configurations more human readable as well.  
+This feature will help the API developers to provide the necessary configurations required for apply response caching functionalities to an api-gateway and to invoke response caching just by providing that in the swagger/OAS definition   rather than  applying response caching  to  an API in the gateway via API gateway -UI  (AKA Publisher U.I.) or other methods .This will make response caching configurations more human readable as well.  
 
 ## Proposed solution
 Proposed solution is to add an extension to the OAS spec where that extension describes the following attributes
